@@ -19,6 +19,7 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
+<<<<<<< Updated upstream
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
@@ -31,12 +32,36 @@ export default class HomeScreen extends React.Component {
               style={styles.welcomeImage}
             />
           </View>
+=======
+      <View style={[styles.container, styles.centered]}>
+        <Text style={styles.nameText}>San Jose Parks and Recreations</Text>
+        <TouchableOpacity style={styles.loginButton} onPress={() => this.goToLogin()}>
+          <Text style={styles.buttonLabel}>
+            Login
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.registerButton} onPress={() => this.goToRegister()}>
+          <Text style={styles.buttonLabel}>
+            Register
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.guestButton} onPress={() => this.goToGuest()}>
+          <Text style={styles.buttonLabel}>
+            Continue as Guest
+          </Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
+>>>>>>> Stashed changes
 
           <View style={styles.getStartedContainer}>
             {this._maybeRenderDevelopmentModeWarning()}
 
             <Text style={styles.getStartedText}>Get started by opening</Text>
 
+<<<<<<< Updated upstream
             <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
               <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
             </View>
@@ -60,6 +85,14 @@ export default class HomeScreen extends React.Component {
             <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
           </View>
         </View>
+=======
+  render() {
+    return (
+      <View style={[styles.container, styles.centered]}>
+        <Text>
+          This is a loginScreen
+        </Text>
+>>>>>>> Stashed changes
       </View>
     );
   }
@@ -72,10 +105,18 @@ export default class HomeScreen extends React.Component {
         </Text>
       );
 
+<<<<<<< Updated upstream
       return (
         <Text style={styles.developmentModeText}>
           Development mode is enabled, your app will be slower but you can use useful development
           tools. {learnMoreButton}
+=======
+  render() {
+    return (
+      <View style={[styles.container, styles.centered]}>
+        <Text>
+          This is a registerScreen
+>>>>>>> Stashed changes
         </Text>
       );
     } else {
@@ -87,6 +128,7 @@ export default class HomeScreen extends React.Component {
     }
   }
 
+<<<<<<< Updated upstream
   _handleLearnMorePress = () => {
     WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
   };
@@ -114,6 +156,47 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   welcomeContainer: {
+=======
+class ReportsView extends React.Component{
+  static navigationOptions = {
+    header: null,
+  }
+
+  render(){
+    return(
+      <View style={styles.container}>
+        <Text style={styles.bigText}>Current Active Reports</Text>
+      </View>
+    )
+  }
+
+}
+
+// class GuestScreen extends React.Component {
+//   static navigationOptions = {
+//     header: null,
+//   };
+//
+//   render() {
+//     return (
+//       <View style={styles.container}>
+//         <Text>
+//           This is a guestScreen
+//         </Text>
+//       </View>
+//     );
+//   }
+// }
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#5A8231',
+  },
+  centered: {
+    justifyContent: 'center',
+>>>>>>> Stashed changes
     alignItems: 'center',
     marginTop: 10,
     marginBottom: 20,
@@ -125,7 +208,17 @@ const styles = StyleSheet.create({
     marginTop: 3,
     marginLeft: -10,
   },
+<<<<<<< Updated upstream
   getStartedContainer: {
+=======
+  bigText: {
+    fontSize: 30,
+  },
+  loginButton: {
+    backgroundColor: 'orange',
+    width: '100%',
+    justifyContent: 'center',
+>>>>>>> Stashed changes
     alignItems: 'center',
     marginHorizontal: 50,
   },
@@ -181,8 +274,13 @@ const styles = StyleSheet.create({
   helpLink: {
     paddingVertical: 15,
   },
+<<<<<<< Updated upstream
   helpLinkText: {
     fontSize: 14,
     color: '#2e78b7',
+=======
+  GuestScreen: {
+    screen: ReportsView
+>>>>>>> Stashed changes
   },
 });
