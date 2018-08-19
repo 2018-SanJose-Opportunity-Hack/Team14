@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "park issues backend",
   "scripts": {
-    "start": "node backend.js",
+    "start": "cd backend && node backend.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
