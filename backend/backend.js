@@ -53,7 +53,7 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, db) => {
 		console.log("Users created");
 	});
 
-	app.listen(8080);
+	app.listen(process.env.PORT || 5000);
 	console.log("Server listening");
 
 	// --- routes ---
