@@ -78,6 +78,7 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, db) => {
 	});
 	// post report
 	app.post('/', (req, res) => {
+		express.json();
 		let report = req.body;
 		if (report) {
 			dbo.collection("reports").insertOne(report, (err, res) => {
