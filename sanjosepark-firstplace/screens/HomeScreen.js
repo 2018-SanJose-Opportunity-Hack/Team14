@@ -47,7 +47,7 @@ class FirstScreen extends React.Component {
         </TouchableOpacity>
         <TouchableOpacity style={styles.guestButton} onPress={() => this.goToGuest()}>
           <Text style={styles.buttonLabel}>
-            Continue as Guest
+            View Reports
           </Text>
         </TouchableOpacity>
       </View>
@@ -259,8 +259,8 @@ class UserFormScreen extends React.Component{
       super(props);
       this.state = {
         photoURL: 'https://i.imgur.com/4DpJA5R.jpg',
-        location: 'Enter a location',
-        description: 'Enter information here',
+        location: '',
+        description: '',
         status: 'open',
       }
     }
@@ -283,19 +283,19 @@ class UserFormScreen extends React.Component{
       return(
         <View style={styles.container}>
           <TouchableOpacity style={styles.uploadPhoto}>
-            <Text>
-              + Upload Photo
-            </Text>
+              <Image source={{uri: 'https://i.imgur.com/4DpJA5R.jpg'}}/>
           </TouchableOpacity>
           <TextInput // Location
             style={styles.textInput}
             onChangeText={(location) => this.setState({location: location})}
             value={this.state.username}
+            placeholder={"Enter a location here"}
           />
-          <TextInput // Location
-            style={styles.textInput}
+          <TextInput // Description of the report
+            style={[styles.textInput, styles.textInputDescription]}
             onChangeText={(description) => this.setState({description: description})}
             value={this.state.description}
+            placeholder={"Enter the issue here"}
           />
           <Button title="Submit Report" onPress={()=> this.submitReport(
             'https://i.imgur.com/4DpJA5R.jpg',
@@ -344,7 +344,7 @@ class RegisterScreen extends React.Component{
           value={this.state.confirmPassword}
         />
         <TextInput //Promo Code
-          style={styles.textInput}
+          style={[styles.textInput, styles.textInputDescription]}
           onChange={(staffCode) => this.setState({staffCode: staffCode})}
           value={this.state.staffCode}
         />
@@ -414,6 +414,13 @@ const styles = StyleSheet.create({
     width: '70%',
     height: '30%',
     backgroundColor: 'grey',
+  },
+  textInput: {
+    backgroundColor: 'white',
+    paddingBottom: 20,
+  },
+  textInputDescription: {
+    height: 50,
   }
 });
 
