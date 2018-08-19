@@ -11,6 +11,7 @@ import {
 import { WebBrowser } from 'expo';
 import { createStackNavigator } from 'react-navigation';
 import { MonoText } from '../components/StyledText';
+import { styles } from 'styles'
 
 class FirstScreen extends React.Component {
   static navigationOptions = {
@@ -32,19 +33,21 @@ class FirstScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.nameText}>San Jose Parks and Recreations</Text>
+        <Image style={styles.preLoginLogo}
+          source={{uri: '../assets/images/tree-42476.png'}}
+        />
         <TouchableOpacity style={styles.loginButton} onPress={() => this.goToLogin()}>
           <Text style={styles.buttonLabel}>
             Login
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.registerButton} onPress={() => this.goToRegister()}>
-          <Text style={styles.buttonLabel}>
+          <Text style={[styles.buttonLabel, styles.blackFont]}>
             Register
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.guestButton} onPress={() => this.goToGuest()}>
-          <Text style={styles.buttonLabel}>
+          <Text style={[styles.buttonLabel, styles.blackFont]}>
             Continue as Guest
           </Text>
         </TouchableOpacity>
@@ -104,46 +107,6 @@ class GuestScreen extends React.Component {
     );
   }
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#5A8231',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  nameText: {
-    fontSize: 24,
-    paddingBottom: '25%'
-  },
-  loginButton: {
-    backgroundColor: 'orange',
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '15%',
-  },
-  buttonLabel: {
-    fontSize: 36,
-    color: 'white',
-    textAlign: 'center',
-  },
-  registerButton: {
-    width: '100%',
-    backgroundColor: 'red',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '15%',
-  },
-  guestButton: {
-    width: '100%',
-    backgroundColor: 'blue',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '15%',
-  },
-});
 
 export default createStackNavigator({
   FirstScreen: {
