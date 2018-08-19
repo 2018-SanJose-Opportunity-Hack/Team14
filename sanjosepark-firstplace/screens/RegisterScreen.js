@@ -15,7 +15,7 @@ import { MonoText } from '../components/StyledText';
 import { styles } from 'styles'
 
 
-class FirstScreen extends React.Component {
+class RegisterScreen extends React.Component {
 
   static navigationOptions = {
     header: null,

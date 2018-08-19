@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
   Button,
+  TextInput,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { createStackNavigator } from 'react-navigation';
@@ -70,21 +71,21 @@ class LoginScreen extends React.Component {
   }
 }
 
-class RegisterScreen extends React.Component {
-  static navigationOptions = {
-    header: null,
-  };
-
-  render() {
-    return (
-      <View style={[styles.container, styles.centered]}>
-        <Text>
-          This is a registerScreen
-        </Text>
-      </View>
-    );
-  }
-}
+// class RegisterScreen extends React.Component {
+//   static navigationOptions = {
+//     header: null,
+//   };
+//
+//   render() {
+//     return (
+//       <View style={[styles.container, styles.centered]}>
+//         <Text>
+//           This is a registerScreen
+//         </Text>
+//       </View>
+//     );
+//   }
+// }
 
 const testReports = [
   {
@@ -254,6 +255,63 @@ class UserFormScreen extends React.Component{
         </View>
       )
     }
+}
+
+class RegisterScreen extends React.Component{
+
+  static navigationOptions = {
+    header: null,
+  }
+
+  constructor(props){
+    super(props);
+    this.state = {
+      username: 'Enter a Username',
+      password: 'Enter a Password',
+      confirmPassword: 'Confirm Password',
+      staffCode: 'Enter staff code (optional)',
+    }
+  }
+
+  render(){
+    return(
+
+    <View style={styles.container}>
+        <TextInput //User's Email
+          style={styles.textInput}
+          onChangeText={(username) => this.setState({username: username})}
+          value={this.state.username}
+        />
+        <TextInput // Password field
+            style={styles.textInput}
+            onChange={(password) => this.setState({password: password})}
+            value={this.state.password}
+        />
+        <TextInput // Confirm password field
+          style={styles.textInput}
+          onChange={(password) => this.setState({confirmPassword: password})}
+          value={this.state.confirmPassword}
+        />
+        <TextInput //Promo Code
+          style={styles.textInput}
+          onChange={(staffCode) => this.setState({staffCode: staffCode})}
+          value={this.state.staffCode}
+        />
+        {/* <TouchableOpacity style={styles.registerButton} onPress={() => this.goToRegister()}>
+          <Text style={[styles.buttonLabel, styles.blackFont]}>
+            Register
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.guestButton} onPress={() => this.goToGuest()}>
+          <Text style={[styles.buttonLabel, styles.blackFont]}>
+            Continue as Guest
+          </Text>
+        </TouchableOpacity> */}
+      </View>
+    )
+  }
+
+
 }
 
 const styles = StyleSheet.create({
