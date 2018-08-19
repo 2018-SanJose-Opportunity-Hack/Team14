@@ -110,6 +110,86 @@ const testReports = [
     text: 'this is a dummy report',
     status: 'open',
   },
+  {
+    image: "https://facebook.github.io/react/logo-og.png",
+    text: 'This is a disgrace of React logo',
+    status: 'open',
+  },
+  {
+    image: 'https://cdn.iconverticons.com/files/png/fa2966e51dfb847f_256x256.png',
+    text: 'This is a cute Pikachu. Please put more in park...please! I want it so much. This is way too cute. Please please please!',
+    status: 'pending'
+  },
+  {
+    image: 'https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png',
+    text: "JavaScript is the worst language ever. Please remove it!",
+    status: 'closed'
+  },
+  {
+    image: 'https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/crash_test_dummy.png',
+    text: 'this is a dummy report',
+    status: 'open',
+  },
+  {
+    image: "https://facebook.github.io/react/logo-og.png",
+    text: 'This is a disgrace of React logo',
+    status: 'open',
+  },
+  {
+    image: 'https://cdn.iconverticons.com/files/png/fa2966e51dfb847f_256x256.png',
+    text: 'This is a cute Pikachu. Please put more in park...please! I want it so much. This is way too cute. Please please please!',
+    status: 'pending'
+  },
+  {
+    image: 'https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png',
+    text: "JavaScript is the worst language ever. Please remove it!",
+    status: 'closed'
+  },
+  {
+    image: 'https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/crash_test_dummy.png',
+    text: 'this is a dummy report',
+    status: 'open',
+  },
+  {
+    image: "https://facebook.github.io/react/logo-og.png",
+    text: 'This is a disgrace of React logo',
+    status: 'open',
+  },
+  {
+    image: 'https://cdn.iconverticons.com/files/png/fa2966e51dfb847f_256x256.png',
+    text: 'This is a cute Pikachu. Please put more in park...please! I want it so much. This is way too cute. Please please please!',
+    status: 'pending'
+  },
+  {
+    image: 'https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png',
+    text: "JavaScript is the worst language ever. Please remove it!",
+    status: 'closed'
+  },
+  {
+    image: 'https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/crash_test_dummy.png',
+    text: 'this is a dummy report',
+    status: 'open',
+  },
+  {
+    image: "https://facebook.github.io/react/logo-og.png",
+    text: 'This is a disgrace of React logo',
+    status: 'open',
+  },
+  {
+    image: 'https://cdn.iconverticons.com/files/png/fa2966e51dfb847f_256x256.png',
+    text: 'This is a cute Pikachu. Please put more in park...please! I want it so much. This is way too cute. Please please please!',
+    status: 'pending'
+  },
+  {
+    image: 'https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png',
+    text: "JavaScript is the worst language ever. Please remove it!",
+    status: 'closed'
+  },
+  {
+    image: 'https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/crash_test_dummy.png',
+    text: 'this is a dummy report',
+    status: 'open',
+  },
 ];
 
 class ReportsView extends React.Component{
@@ -140,10 +220,11 @@ class ReportsView extends React.Component{
 
   render(){
     return(
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text style={styles.bigText}>Current Active Reports</Text>
         {this.loadDummyData()}
-      </View>
+        {/* Rendering some dummy data  */}
+      </ScrollView>
     )
   }
 
