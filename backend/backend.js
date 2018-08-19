@@ -12,7 +12,8 @@ const reports = [
 		"description": "hackers throwing trash everywhere",
 		"park": "paypal park",
 		"contact-method": "email",
-		"can-contact": false
+		"can-contact": false,
+		"status": "open"
 	},
 	{
 		// photo: "https://louisvilleky.gov/sites/default/files/styles/park_header_image/public/parks/park_event_images/black_mudd_web_header.jpg",
@@ -21,7 +22,8 @@ const reports = [
 		"description": "hackers throwing trash everywhere",
 		"park": "paypal park",
 		"contact-method": "email",
-		"can-contact": false
+		"can-contact": false,
+		"status": "open"
 	},
 	{
 		// photo: "https://louisvilleky.gov/sites/default/files/styles/park_header_image/public/parks/park_event_images/black_mudd_web_header.jpg",
@@ -30,22 +32,41 @@ const reports = [
 		"description": "hackers throwing trash everywhere",
 		"park": "paypal park",
 		"contact-method": "email",
-		"can-contact": false
+		"can-contact": false,
+		"status": "open"
 	},
 ];
 
 MongoClient.connect(url, {useNewUrlParser: true}, (err, db) => {
 	if (err) throw err;
 	let dbo = db.db("csjpark-teamfirstplace");
-	// dbo.createCollection("reports", function(err, res) {
-	// 	if (err) throw err;
-	// 	console.log("Collection created!");
-	// });
+	dbo.createCollection("reports", (err, res) => {
+		if (err) throw err;
+		console.log("Complaints created!");
+	});
+	dbo.createCollection("parks", (err, res) => {
+		if (err) throw err;
+		console.log("Parks created");
+	});
+	dbo.createCollection("users", (err, res) => {
+		if (err) throw err;
+		console.log("Users created");
+	});
 
 	app.listen(8080);
 	console.log("Server listening");
+
 	// --- routes ---
-	// lookup by userid
+	// parks, this call should be done on app startup 
+	app.get('/', (req, res) => {
+		let pname = req.params.name;
+		if (pname) {
+			dbo.collection("parks").find( {query: pname} );
+		} else {
+			console.log("Park doesn't exist");
+		}
+	});
+	// my submissions
 	app.get('/', (req, res) => {
 		console.log("Get request received");
 		let userid = req.params.userid;
