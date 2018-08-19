@@ -71,161 +71,172 @@ class LoginScreen extends React.Component {
   }
 }
 
-// class RegisterScreen extends React.Component {
-//   static navigationOptions = {
-//     header: null,
-//   };
-//
-//   render() {
-//     return (
-//       <View style={[styles.container, styles.centered]}>
-//         <Text>
-//           This is a registerScreen
-//         </Text>
-//       </View>
-//     );
-//   }
-// }
-
 const testReports = [
   {
     image: "https://facebook.github.io/react/logo-og.png",
     text: 'This is a disgrace of React logo',
     status: 'open',
+    location: '2145 Hamilton Ave, San Jose, CA 95125'
   },
   {
     image: 'https://cdn.iconverticons.com/files/png/fa2966e51dfb847f_256x256.png',
     text: 'This is a cute Pikachu. Please put more in park...please! I want it so much. This is way too cute. Please please please!',
-    status: 'pending'
+    status: 'pending',
+    location: '2145 Hamilton Ave, San Jose, CA 95125'
   },
   {
     image: 'https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png',
     text: "JavaScript is the worst language ever. Please remove it!",
-    status: 'closed'
+    status: 'closed',
+    location: '2145 Hamilton Ave, San Jose, CA 95125'
   },
   {
     image: 'https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/crash_test_dummy.png',
     text: 'this is a dummy report',
     status: 'open',
+    location: '2145 Hamilton Ave, San Jose, CA 95125'
   },
   {
     image: "https://facebook.github.io/react/logo-og.png",
     text: 'This is a disgrace of React logo',
     status: 'open',
+    location: '2145 Hamilton Ave, San Jose, CA 95125'
   },
   {
     image: 'https://cdn.iconverticons.com/files/png/fa2966e51dfb847f_256x256.png',
     text: 'This is a cute Pikachu. Please put more in park...please! I want it so much. This is way too cute. Please please please!',
-    status: 'pending'
+    status: 'pending',
+    location: '2145 Hamilton Ave, San Jose, CA 95125'
   },
   {
     image: 'https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png',
     text: "JavaScript is the worst language ever. Please remove it!",
-    status: 'closed'
+    status: 'closed',
+    location: '2145 Hamilton Ave, San Jose, CA 95125'
   },
   {
     image: 'https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/crash_test_dummy.png',
     text: 'this is a dummy report',
     status: 'open',
+    location: '200 E Santa Clara Street, San Jose, CA 95113'
   },
   {
     image: "https://facebook.github.io/react/logo-og.png",
     text: 'This is a disgrace of React logo',
     status: 'open',
+    location: '200 E Santa Clara Street, San Jose, CA 95113'
   },
   {
     image: 'https://cdn.iconverticons.com/files/png/fa2966e51dfb847f_256x256.png',
     text: 'This is a cute Pikachu. Please put more in park...please! I want it so much. This is way too cute. Please please please!',
-    status: 'pending'
+    status: 'pending',
+    location: '200 E Santa Clara Street, San Jose, CA 95113'
   },
   {
     image: 'https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png',
     text: "JavaScript is the worst language ever. Please remove it!",
-    status: 'closed'
+    status: 'closed',
+    location: '200 E Santa Clara Street, San Jose, CA 95113'
   },
   {
     image: 'https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/crash_test_dummy.png',
     text: 'this is a dummy report',
     status: 'open',
+    location: 'Eastridge Mall'
   },
   {
     image: "https://facebook.github.io/react/logo-og.png",
     text: 'This is a disgrace of React logo',
     status: 'open',
+    location: 'Eastridge Mall'
   },
   {
     image: 'https://cdn.iconverticons.com/files/png/fa2966e51dfb847f_256x256.png',
     text: 'This is a cute Pikachu. Please put more in park...please! I want it so much. This is way too cute. Please please please!',
-    status: 'pending'
+    status: 'pending',
+    location: '1600 Amphitheatre Pkwy, Mountain View, CA 94043'
   },
   {
     image: 'https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png',
     text: "JavaScript is the worst language ever. Please remove it!",
-    status: 'closed'
+    status: 'closed',
+    location: 'Saint James Park',
   },
   {
     image: 'https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/crash_test_dummy.png',
     text: 'this is a dummy report',
     status: 'open',
+    location: 'Saint James Park',
   },
   {
     image: "https://facebook.github.io/react/logo-og.png",
     text: 'This is a disgrace of React logo',
     status: 'open',
+    location: 'Saint James Park',
   },
   {
     image: 'https://cdn.iconverticons.com/files/png/fa2966e51dfb847f_256x256.png',
     text: 'This is a cute Pikachu. Please put more in park...please! I want it so much. This is way too cute. Please please please!',
-    status: 'pending'
+    status: 'pending',
+    location: 'Alum Rock Park',
   },
   {
     image: 'https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png',
     text: "JavaScript is the worst language ever. Please remove it!",
-    status: 'closed'
+    status: 'closed',
+    location: 'Alum Rock Park',
   },
   {
     image: 'https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/crash_test_dummy.png',
     text: 'this is a dummy report',
     status: 'open',
+    location: 'Alum Rock Park',
   },
 ];
 
+function loadDummyData(){
+  return testReports.map((data) => {
+    return (
+      <TouchableOpacity style={styles.rowContainer}>
+        <Image source={{uri: data.image}}
+          style={{width:50, height:50}}
+        />
+        <Text style={{width: "60%", height: 50}}>
+          {data.text}
+        </Text>
+        <TouchableOpacity style={{width: "30%"}}>
+          <Text>
+            Status: {data.status}
+          </Text>
+        </TouchableOpacity>
+      </TouchableOpacity>
+    )
+  })
+}
 class ReportsView extends React.Component{
 
   static navigationOptions = {
     header: null,
   }
 
+  constructor(props){
+    super(props);
+    this.state = {
+      initialArrayLength: testReports.length,
+    }
+  }
+
   goToUserForm(){
     this.props.navigation.navigate('UserFormScreen');
   }
 
-  loadDummyData(){
-    return testReports.map((data) => {
-      return (
-        <TouchableOpacity style={styles.rowContainer}>
-          <Image source={{uri: data.image}}
-          style={{width:50, height:50}}
-        />
-          <Text style={{width: "60%", height: 50}}>
-            {data.text}
-          </Text>
-          <TouchableOpacity style={{width: "30%"}}>
-            <Text>
-              Status: {data.status}
-            </Text>
-          </TouchableOpacity>
-        </TouchableOpacity>
-      )
-    })
-  }
 
   render(){
     return(
       <View style={styles.container}>
         <ScrollView>
           <Text style={styles.bigText}>Current Active Reports</Text>
-          {this.loadDummyData()}
+          {loadDummyData()}
           {/* Rendering some dummy data  */}
         </ScrollView>
         <Button title="Add a report" onPress={() => this.goToUserForm()}/>
@@ -241,17 +252,54 @@ class UserFormScreen extends React.Component{
       header: null,
     }
 
+    constructor(props){
+      super(props);
+      this.state = {
+        photoURL: 'https://i.imgur.com/4DpJA5R.jpg',
+        location: 'Enter a location',
+        description: 'Enter information here',
+        status: 'open',
+      }
+    }
+
     goBackToList(){
       this.props.navigation.navigate('GuestScreen');
+    }
+
+    submitReport(photoURL, location, description, status){
+      testReports.unshift({
+        image: photoURL,
+        text: description,
+        status: status,
+        location: location,
+      })
+      this.goBackToList();
     }
 
     render(){
       return(
         <View style={styles.container}>
-          <Text>
-            This is the User Form placeholder
-          </Text>
-          <Button title="Submit Report" onPress={()=> this.goBackToList()}/>
+          <TouchableOpacity style={styles.uploadPhoto}>
+            <Text>
+              + Upload Photo
+            </Text>
+          </TouchableOpacity>
+          <TextInput // Location
+            style={styles.textInput}
+            onChangeText={(location) => this.setState({location: location})}
+            value={this.state.username}
+          />
+          <TextInput // Location
+            style={styles.textInput}
+            onChangeText={(description) => this.setState({description: description})}
+            value={this.state.description}
+          />
+          <Button title="Submit Report" onPress={()=> this.submitReport(
+            'https://i.imgur.com/4DpJA5R.jpg',
+            this.state.username,
+            this.state.description,
+            'open'
+          )}/>
         </View>
       )
     }
@@ -359,6 +407,64 @@ const styles = StyleSheet.create({
   rowContainer: {
     flexDirection: 'row'
   },
+  // container: {
+  //   flex: 1,
+  //   paddingTop: '80px',
+  //   backgroundColor: '#fff',
+  // },
+  //
+  //   //pre Login Page
+  // loginButton: {
+  //   backgroundColor: '#48731C',
+  //   width: '188px',
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   height: '80px',
+  //   margin: 0 'auto',
+  // },
+  // buttonLabel: {
+  //   fontSize: 32,
+  //   color: 'white',
+  //   textAlign: 'center',
+  //   textTransform: 'uppercase',
+  // },
+  // blackFont: {
+  //   color: 'black',
+  // },
+  // registerButton: {
+  //   width: '188px',
+  //   backgroundColor: 'white',
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   height: '80px',
+  //   margin: '10px' 'auto',
+  // },
+  // guestButton: {
+  //   width: '100%',
+  //   backgroundColor: 'white',
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   height: '80px',
+  //   bottom: 0;
+  // },
+  // preLoginLogo: {
+  //     margin: '100px' 'auto' 0 '100px',
+  //     //width: '188px',
+  //     //height: '212px',
+  // },
+  // whiteLogo: {
+  //   left: '20%',
+  // },
+  // textInput: {
+  //     height: 40,
+  //     borderColor: 'gray',
+  //     borderWidth: 1,
+  // },
+  uploadPhoto: {
+    width: '70%',
+    height: '30%',
+    backgroundColor: 'grey',
+  }
 });
 
 export default createStackNavigator({
