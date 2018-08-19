@@ -1,0 +1,23 @@
+{
+  "name": "park-issues",
+  "version": "1.0.0",
+  "description": "park issues backend",
+  "scripts": {
+    "start": "node backend.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2018-SanJose-Opportunity-Hack/Team14.git"
+  },
+  "author": "jiabeiluo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2018-SanJose-Opportunity-Hack/Team14/issues"
+  },
+  "homepage": "https://github.com/2018-SanJose-Opportunity-Hack/Team14#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.9"
+  }
+}
