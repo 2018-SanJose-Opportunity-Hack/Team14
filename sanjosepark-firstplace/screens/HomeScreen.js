@@ -9,13 +9,25 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-
+import { createStackNavigator } from 'react-navigation';
 import { MonoText } from '../components/StyledText';
 
-export default class HomeScreen extends React.Component {
+class FirstScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  goToLogin(){
+    this.props.navigation.navigate('LoginScreen')
+  }
+
+  goToRegister(){
+    this.props.navigation.navigate('RegisterScreen')
+  }
+
+  goToGuest(){
+    this.props.navigation.navigate('GuestScreen')
+  }
 
   render() {
     return (
@@ -41,10 +53,14 @@ export default class HomeScreen extends React.Component {
   }
 }
 
-          <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
+class LoginScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
 
-            <Text style={styles.getStartedText}>Get started by opening</Text>
+  goToLogin(){
+    this.props.navigation.navigate('LoginPage')
+  }
 
   render() {
     return (
@@ -55,14 +71,12 @@ export default class HomeScreen extends React.Component {
       </View>
     );
   }
+}
 
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
+class RegisterScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
 
   render() {
     return (
@@ -70,25 +84,65 @@ export default class HomeScreen extends React.Component {
         <Text>
           This is a registerScreen
         </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
+      </View>
+    );
   }
+}
+
+const testReports = [
+  {
+    image: "https://facebook.github.io/react/logo-og.png",
+    text: 'This is a disgrace of React logo',
+    status: 'open',
+  },
+  {
+    image: 'https://cdn.iconverticons.com/files/png/fa2966e51dfb847f_256x256.png',
+    text: 'This is a cute Pikachu. Please put more in park...please! I want it so much. This is way too cute. Please please please!',
+    status: 'pending'
+  },
+  {
+    image: 'https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png',
+    text: "JavaScript is the worst language ever. Please remove it!",
+    status: 'closed'
+  },
+  {
+    image: 'https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/crash_test_dummy.png',
+    text: 'this is a dummy report',
+    status: 'open',
+  },
+];
 
 class ReportsView extends React.Component{
+
   static navigationOptions = {
     header: null,
+  }
+
+  loadDummyData(){
+    return testReports.map((data) => {
+      return (
+        <TouchableOpacity style={styles.rowContainer}>
+          <Image source={{uri: data.image}}
+          style={{width:50, height:50}}
+        />
+          <Text style={{width: "60%", height: 50}}>
+            {data.text}
+          </Text>
+          <TouchableOpacity style={{width: "30%"}}>
+            <Text>
+              Status: {data.status}
+            </Text>
+          </TouchableOpacity>
+        </TouchableOpacity>
+      )
+    })
   }
 
   render(){
     return(
       <View style={styles.container}>
         <Text style={styles.bigText}>Current Active Reports</Text>
+        {this.loadDummyData()}
       </View>
     )
   }
@@ -120,15 +174,10 @@ const styles = StyleSheet.create({
   centered: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
   },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
+  nameText: {
+    fontSize: 24,
+    paddingBottom: '25%'
   },
   bigText: {
     fontSize: 30,
@@ -138,61 +187,43 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 50,
+    height: '15%',
   },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
+  buttonLabel: {
+    fontSize: 36,
+    color: 'white',
     textAlign: 'center',
   },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
+  registerButton: {
+    width: '100%',
+    backgroundColor: 'red',
+    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
+    height: '15%',
   },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
+  guestButton: {
+    width: '100%',
+    backgroundColor: 'blue',
+    justifyContent: 'center',
     alignItems: 'center',
+    height: '15%',
   },
-  helpLink: {
-    paddingVertical: 15,
+  rowContainer: {
+    flexDirection: 'row'
+  },
+});
+
+export default createStackNavigator({
+  FirstScreen: {
+    screen: FirstScreen
+  },
+  LoginScreen: {
+    screen: LoginScreen
+  },
+  RegisterScreen: {
+    screen: RegisterScreen
   },
   GuestScreen: {
     screen: ReportsView
   },
-});
+})
