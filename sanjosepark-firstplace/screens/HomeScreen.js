@@ -9,16 +9,24 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-
+import { createStackNavigator } from 'react-navigation';
 import { MonoText } from '../components/StyledText';
 
-export default class HomeScreen extends React.Component {
+class FirstScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
 
   goToLogin(){
-    this.props.navigation.navigate('LoginPage')
+    this.props.navigation.navigate('LoginScreen')
+  }
+
+  goToRegister(){
+    this.props.navigation.navigate('RegisterScreen')
+  }
+
+  goToGuest(){
+    this.props.navigation.navigate('GuestScreen')
   }
 
   render() {
@@ -30,12 +38,12 @@ export default class HomeScreen extends React.Component {
             Login
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.registerButton}>
+        <TouchableOpacity style={styles.registerButton} onPress={() => this.goToRegister()}>
           <Text style={styles.buttonLabel}>
             Register
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.guestButton}>
+        <TouchableOpacity style={styles.guestButton} onPress={() => this.goToGuest()}>
           <Text style={styles.buttonLabel}>
             Continue as Guest
           </Text>
@@ -44,6 +52,59 @@ export default class HomeScreen extends React.Component {
     );
   }
 }
+
+class LoginScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+
+  goToLogin(){
+    this.props.navigation.navigate('LoginPage')
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>
+          This is a loginScreen
+        </Text>
+      </View>
+    );
+  }
+}
+
+class RegisterScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>
+          This is a registerScreen
+        </Text>
+      </View>
+    );
+  }
+}
+
+class GuestScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>
+          This is a guestScreen
+        </Text>
+      </View>
+    );
+  }
+}
+
 
 const styles = StyleSheet.create({
   container: {
@@ -83,3 +144,18 @@ const styles = StyleSheet.create({
     height: '15%',
   },
 });
+
+export default createStackNavigator({
+  FirstScreen: {
+    screen: FirstScreen
+  },
+  LoginScreen: {
+    screen: LoginScreen
+  },
+  RegisterScreen: {
+    screen: RegisterScreen
+  },
+  GuestScreen: {
+    screen: GuestScreen
+  },
+})
