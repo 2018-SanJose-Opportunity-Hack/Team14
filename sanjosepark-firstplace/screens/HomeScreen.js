@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { createStackNavigator } from 'react-navigation';
@@ -57,10 +58,6 @@ class LoginScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
-
-  goToLogin(){
-    this.props.navigation.navigate('LoginPage')
-  }
 
   render() {
     return (
@@ -198,6 +195,10 @@ class ReportsView extends React.Component{
     header: null,
   }
 
+  goToUserForm(){
+    this.props.navigation.navigate('UserFormScreen');
+  }
+
   loadDummyData(){
     return testReports.map((data) => {
       return (
@@ -220,32 +221,40 @@ class ReportsView extends React.Component{
 
   render(){
     return(
-      <ScrollView style={styles.container}>
-        <Text style={styles.bigText}>Current Active Reports</Text>
-        {this.loadDummyData()}
-        {/* Rendering some dummy data  */}
-      </ScrollView>
+      <View style={styles.container}>
+        <ScrollView>
+          <Text style={styles.bigText}>Current Active Reports</Text>
+          {this.loadDummyData()}
+          {/* Rendering some dummy data  */}
+        </ScrollView>
+        <Button title="Add a report" onPress={() => this.goToUserForm()}/>
+      </View>
     )
   }
 
 }
 
-// class GuestScreen extends React.Component {
-//   static navigationOptions = {
-//     header: null,
-//   };
-//
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text>
-//           This is a guestScreen
-//         </Text>
-//       </View>
-//     );
-//   }
-// }
+class UserFormScreen extends React.Component{
 
+    static navigationOptions = {
+      header: null,
+    }
+
+    goBackToList(){
+      this.props.navigation.navigate('GuestScreen');
+    }
+
+    render(){
+      return(
+        <View style={styles.container}>
+          <Text>
+            This is the User Form placeholder
+          </Text>
+          <Button title="Submit Report" onPress={()=> this.goBackToList()}/>
+        </View>
+      )
+    }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -307,4 +316,7 @@ export default createStackNavigator({
   GuestScreen: {
     screen: ReportsView
   },
+  UserFormScreen: {
+    screen: UserFormScreen
+  }
 })
