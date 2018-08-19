@@ -61,7 +61,7 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, db) => {
 	app.get('/', (req, res) => {
 		let pname = req.params.name;
 		if (pname) {
-			dbo.collection("parks").find( {query: pname} );
+			dbo.collection("parks").findOne( {query: pname} );
 		} else {
 			console.log("Park doesn't exist");
 		}
