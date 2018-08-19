@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: '80px',
-    margin: 0 'auto',
+    margin: '10px' 'auto',
   },
   guestButton: {
     width: '100%',
@@ -48,6 +48,11 @@ const styles = StyleSheet.create({
   },
   whiteLogo: {
     left: '20%', 
+  },
+  textInput: {
+      height: 40,
+      borderColor: 'gray', 
+      borderWidth: 1,
   },
 });
 
